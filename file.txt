@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiverr & Upwork Services Poster</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            padding: 20px;
+        }
+
+        .poster {
+            width: 600px;
+            background: linear-gradient(135deg, #0d1f0d 0%, #001a00 50%, #0d1f0d 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 
+                0 0 50px rgba(0, 255, 0, 0.3),
+                0 0 100px rgba(0, 255, 0, 0.1),
+                inset 0 0 60px rgba(0, 255, 0, 0.1);
+            position: relative;
+            border: 2px solid rgba(0, 255, 0, 0.3);
+        }
+
+        .poster::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 0, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 30px;
+        }
+
+        /* Header Badges */
+        .header-badges {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .badge {
+            flex: 1;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 30px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .badge-fiverr {
+            border-color: rgba(0, 255, 0, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+
+        .badge-text {
+            color: #fff;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .badge-subtext {
+            color: #aaa;
+            font-size: 10px;
+            text-align: center;
+            margin-top: 2px;
+        }
+
+        .stars {
+            color: #ffd700;
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        /* Main Title */
+        .main-title {
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .title-badge {
+            background: linear-gradient(135deg, #b8860b 0%, #ffd700 50%, #b8860b 100%);
+            color: #000;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .title-main {
+            font-size: 28px;
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            line-height: 1.2;
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            margin: 10px 0;
+        }
+
+        .title-highlight {
+            background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            font-size: 32px;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.5));
+        }
+
+        .subtitle {
+            color: #00ff00;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 10px;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        }
+
+        /* Services List */
+        .services-section {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid rgba(0, 255, 0, 0.2);
+        }
+
+        .section-title {
+            color: #ffd700;
+            font-size: 18px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .fire-emoji {
+            font-size: 20px;
+        }
+
+        .services-list {
+            list-style: none;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: bold;
+            flex-shrink: 0;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .service-text {
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .highlight-green {
+            color: #00ff00;
+            font-weight: 800;
+        }
+
+        /* Countries Section */
+        .countries-section {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(0, 255, 0, 0.1) 0%, rgba(0, 100, 0, 0.2) 100%);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+        }
+
+        .countries-title {
+            color: #ffd700;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .countries-list {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .flag {
+            font-size: 20px;
+            margin: 0 3px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid rgba(0, 255, 0, 0.3);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+        }
+
+        .contact-title {
+            color: #ffd700;
+            font-size: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .rocket {
+            font-size: 24px;
+        }
+
+        .whatsapp-box {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            border-radius: 30px;
+            padding: 12px 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .whatsapp-icon {
+            font-size: 24px;
+        }
+
+        .whatsapp-text {
+            color: #fff;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .whatsapp-link {
+            color: #fff;
+            font-size: 12px;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .support-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .support-icon {
+            font-size: 20px;
+        }
+
+        .support-text {
+            color: #ffd700;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .support-subtext {
+            color: #fff;
+            font-size: 10px;
+        }
+
+        .order-btn {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 900;
+            font-size: 14px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Decorative Elements */
+        .glow-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #00ff00 50%, transparent 100%);
+            margin: 15px 0;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .corner-decoration {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgba(0, 255, 0, 0.3);
+            border-radius: 50%;
+        }
+
+        .corner-top-right {
+            top: -50px;
+            right: -50px;
+        }
+
+        .corner-bottom-left {
+            bottom: -50px;
+            left: -50px;
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="poster">
+        <div class="corner-decoration corner-top-right"></div>
+        <div class="corner-decoration corner-bottom-left"></div>
+
+        <div class="content">
+            <!-- Header Badges -->
+            <div class="header-badges">
+                <div class="badge badge-fiverr">
+                    <span style="color: #00ff00; font-weight: 900;">fiverr</span>
+                    <span class="stars">★★★★★</span>
+                    <div>
+                        <div class="badge-text">5⭐</div>
+                        <div class="badge-subtext">Review Available</div>
+                    </div>
+                </div>
+                <div class="badge">
+                    <span style="color: #6fda44; font-weight: 900;">up</span>
+                    <span style="color: #fff; font-weight: 900;">work</span>
+                    <span class="stars">★★★★★</span>
+                    <div>
+                        <div class="badge-text">5⭐</div>
+                        <div class="badge-subtext">Review Available</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Title -->
+            <div class="main-title">
+                <div class="title-badge">Professional</div>
+                <h1 class="title-main">
+                    Fiverr & Upwork<br>
+                    <span class="title-highlight">GIG SERVICES</span>
+                </h1>
+                <div class="subtitle">VVRO METHOD ✨</div>
+            </div>
+
+            <div class="glow-line"></div>
+
+            <!-- Services List -->
+            <div class="services-section">
+                <div class="section-title">
+                    <span class="fire-emoji">🔥</span>
+                    Our Professional Services
+                    <span class="fire-emoji">🔥</span>
+                </div>
+                <ul class="services-list">
+                    <li class="service-item">
+                        <div class="check-icon">✓</div>
+                        <span class="service-text"><span class="highlight-green">Fiverr 5⭐ Reviews</span> (RDP Method)</span>
+                    </li>
+                    <li class="service-item">
+                        <div class="check-icon">✓</div>
+                        <span class="service-text">Fiverr <span class="highlight-green">Gig Ranking</span> & Gig Boost</span>
+                    </li>
+                    <li class="service-item">
+                        <div class="check-icon">✓</div>
+                        <span class="service-text">Fiverr & Upwork <span class="highlight-green">Account Setup</span></span>
+                    </li>
+                    <li class="service-item">
+                        <div class="check-icon">✓</div>
+                        <span class="service-text">Advanced <span class="highlight-green">SEO Optimization</span></span>
+                    </li>
+                    <li class="service-item">
+                        <div class="check-icon">✓</div>
+                        <span class="service-text">Upwork <span class="highlight-green">JSS Increase</span> (Job Success Score)</span>
+                    </li>
+                    <li class="service-item">
+                        <div class="check-icon">✓</div>
+                        <span class="service-text">Fiverr <span class="highlight-green">Success Score</span> & Profile Boost</span>
+                    </li>
+                    <li class="service-item">
+                        <div class="check-icon">✓</div>
+                        <span class="service-text"><span class="highlight-green">VVRO Method</span> Gig Boost</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Countries Section -->
+            <div class="countries-section">
+                <div class="countries-title">🌍 Top Countries Buyer Accounts Available</div>
+                <div class="countries-list">
+                    <span class="flag">🇺🇸</span> USA |
+                    <span class="flag">🇬🇧</span> UK |
+                    <span class="flag">🇩🇪</span> Germany |
+                    <span class="flag">🇦🇺</span> Australia |
+                    <span class="flag">🇫🇷</span> France |
+                    <span class="flag">🇨🇦</span> Canada
+                </div>
+                <div style="color: #00ff00; font-size: 12px; margin-top: 8px; font-weight: 600;">
+                    Safe & Secure Buyer Network 🛜
+                </div>
+            </div>
+
+            <div class="glow-line"></div>
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <div class="contact-title">
+                    <span class="rocket">🚀</span>
+                    Contact Now
+                    <span class="rocket">🚀</span>
+                </div>
+                <div class="whatsapp-box">
+                    <span class="whatsapp-icon">💬</span>
+                    <div>
+                        <div class="whatsapp-text">WhatsApp:</div>
+                        <a href="https://wa.me/+923262064062" class="whatsapp-link">https://wa.me/+923262064062</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="support-badge">
+                    <span class="support-icon">🎧</span>
+                    <div>
+                        <div class="support-text">24/7</div>
+                        <div class="support-subtext">Support</div>
+                    </div>
+                </div>
+                <button class="order-btn">Order Now</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
